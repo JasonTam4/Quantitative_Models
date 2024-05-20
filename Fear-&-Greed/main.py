@@ -78,9 +78,13 @@ def main(offset):
                 count += 1
         
         correlation = round(count/num_items, 4)
-
-        print(f"For an offset of: {ia} and {num_items} items, there is a correlation of: {correlation}")
         correlation_list.append(correlation)
+
+        if ia <= 0:
+            print(f"If Bitcoin is a leading indicator of Fear & Greed for: {abs(ia)} days, using {num_items} data point, there is a correlation of: {correlation}")
+        else:
+            print(f"If Fear & Greed is a leading indicator of Bitcoin for: {abs(ia)} days, using {num_items} data points, there is a correlation of: {correlation}")
+
     
     print(f"Max correlation: {max(correlation_list)}")
     print(f"Avg correlation: {sum(correlation_list)/len(correlation_list)}")
